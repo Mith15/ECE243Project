@@ -1,3 +1,5 @@
+.equ ADDR_VGA, 0x08000000
+
 /***********************************************************************
  * CalculatePixelAddr
  *	- calculates the address of a pixel based on its
