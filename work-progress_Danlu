@@ -1,0 +1,5 @@
+March 17, 2018
+	- create data structure for board squares
+      - map structure: each square contains data and connections (in CW order starting from top square)
+      
+March 18, 2018
