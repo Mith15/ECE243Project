@@ -2,7 +2,8 @@
  * ClearScreen: return screen to fully black using the character
  * buffer
  *****************************************************************/
-		
+.global ClearScreen
+
 ClearScreen:
 # PROLOGUE
 	subi, sp, sp, 16
