@@ -4,3 +4,4 @@ March 17, 2018
       
 March 18, 2018
 	- created CalculatePixelAddr subroutine
+	- create CalculateCharAddr subroutine
