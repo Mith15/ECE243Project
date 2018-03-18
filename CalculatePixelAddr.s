@@ -13,17 +13,22 @@
 .global CalculatePixelAddr
 
 CalculatePixelAddr:
-	subi sp, sp, 8
-	stw r16, 0(sp)
-	stw r17, 4(sp)
+	subi sp, sp, 16
+	stw ra, 0(sp)
+	stw r16, 4(sp)
+	stw r17, 8(sp)
+	stw r18, 12(sp)
 	
 	muli r16, r4, 2		# 2*x
 	muli r17, r5, 1024	# 1024*y
 
 	add r2, r16, r17	# sum up offset
-	add r2, r2, ADDR_VGA
+	movia r18, ADDR_VGA	
+	add r2, r2, r18 # calculate pixel address       		
 	
-	ldw r16, 0(sp)
-	ldw r17, 4(sp)
-	addi sp, sp, 8
+	ldw ra, 0(sp)
+	ldw r16, 4(sp)
+	ldw r17, 8(sp)
+	ldw r18, 12(sp)
+	addi sp, sp, 16
 	ret
