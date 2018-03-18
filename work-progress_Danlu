@@ -6,3 +6,4 @@ March 18, 2018
 	- created CalculatePixelAddr subroutine
 	- create CalculateCharAddr subroutine
 	- create ClearScreen subroutine
+	- draw one square of game board on VGA display
