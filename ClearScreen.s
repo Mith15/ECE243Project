@@ -1,49 +1,53 @@
 /*****************************************************************
- * ClearScreen: return screen to fully black using the character
+ * ClearScreen: return screen to fully black using the pixel
  * buffer
  *****************************************************************/
+ .equ BLACK, 0x0000
+ 
 .global ClearScreen
 
 ClearScreen:
 # PROLOGUE
-	subi, sp, sp, 16
+	subi, sp, sp, 20
 	stw ra, 0(sp)
 	stw r16, 4(sp)
 	stw r20, 8(sp)
 	stw r21, 12(sp)
+	stw r22, 16(sp)
 	
-	movui r16, ' '
-	
-	mov r4, r0		# x coordinate
-	mov r5, r0		# y coordinate
+	movui r16, BLACK
+	# start at (x,y) = (0,0)
+	mov r4, r0		# starting x coordinate
+	mov r5, r0		# starting y coordinate
 	
 	addi r20, r0, 240	# comparator for y
 	addi r21, r0, 320	# comparator for x
 	
-loop_y1:
-	bge r5, r20, end_loopy1
+ClearScreen_loopy:
+	bge r5, r20, ClearScreen_end_loopy
 	
-	loop_x1: 
-		bge r4, r21, end_loopx1:
+	ClearScreen_loopx: 
+		bge r4, r21, ClearScreen_end_loopx:
 		
-		call CalculateCharAddr
-		mov r8, r2
-		stbio r16, 0(r8)	# store character into buffer
+		call CalculatePixelAddr	# calculate pixel address
+		mov r8, r2		
+		stbio r16, 0(r8)	# store pixel into buffer
 		
 		addi r4, r4, 1		# increment x by 1
 		br loop_x1
 
-	end_loopx1:
+	ClearScreen_end_loopx:
 		addi r5, r5, 1		# increment y by 1
 		mov r4, r0			# reset x to 0
 		br loop_y1
 	
-end_loopy1:
+ClearScreen_loopy:
 # EPILOGUE
 	ldw ra, 0(sp)
 	ldw r16, 4(sp)
 	ldw r20, 8(sp)
 	ldw r21, 12(sp)
-	addi sp, sp, 16
+	ldw r22, 16(sp)
+	addi sp, sp, 20
 	
 	ret
