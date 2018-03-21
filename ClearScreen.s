@@ -30,8 +30,8 @@ ClearScreen_loopy:
 		bge r4, r21, ClearScreen_end_loopx:
 		
 		call CalculatePixelAddr	# calculate pixel address
-		mov r8, r2		
-		stbio r16, 0(r8)	# store pixel into buffer
+		mov r22, r2		
+		stbio r16, 0(r22)	# store pixel into buffer
 		
 		addi r4, r4, 1		# increment x by 1
 		br ClearScreen_loopx
