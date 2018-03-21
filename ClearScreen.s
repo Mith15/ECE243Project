@@ -34,12 +34,12 @@ ClearScreen_loopy:
 		stbio r16, 0(r8)	# store pixel into buffer
 		
 		addi r4, r4, 1		# increment x by 1
-		br loop_x1
+		br ClearScreen_loopx
 
 	ClearScreen_end_loopx:
 		addi r5, r5, 1		# increment y by 1
 		mov r4, r0			# reset x to 0
-		br loop_y1
+		br ClearScreen_loopy
 	
 ClearScreen_loopy:
 # EPILOGUE
