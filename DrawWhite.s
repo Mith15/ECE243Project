@@ -33,17 +33,17 @@ DrawWhite:
 	sthio r16, 0(r2)		# draw first pixel of row
 	addi r20, r20, 1
 	
-	row1_loop:
-		bgt r20, r21, end_row1_loop
+	row1_loopWH:
+		bgt r20, r21, end_row1_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1
-		br row1_loop
+		br row1_loopWH
 		
-	end_row1_loop:
+	end_row1_loopWH:
 		ldw r4, 16(sp)		# restore input x
 		mov r20, r0
 		mov r21, r0
@@ -57,17 +57,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row2_loop:
-		bgt r20, r21, end_row2_loop
+	row2_loopWH:
+		bgt r20, r21, end_row2_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row2_loop
+		br row2_loopWH
 		
-	end_row2_loop:
+	end_row2_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -81,17 +81,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row3_loop:
-		bgt r20, r21, end_row3_loop
+	row3_loopWH:
+		bgt r20, r21, end_row3_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row3_loop
+		br row3_loopWH
 		
-	end_row3_loop:
+	end_row3_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -105,17 +105,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row4_loop:
-		bgt r20, r21, end_row4_loop
+	row4_loopWH:
+		bgt r20, r21, end_row4_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row4_loop
+		br row4_loopWH
 		
-	end_row4_loop:
+	end_row4_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -129,17 +129,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row5_loop:
-		bgt r20, r21, end_row5_loop
+	row5_loopWH:
+		bgt r20, r21, end_row5_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row5_loop
+		br row5_loopWH
 		
-	end_row5_loop:
+	end_row5_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -153,17 +153,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row6_loop:
-		bgt r20, r21, end_row6_loop
+	row6_loopWH:
+		bgt r20, r21, end_row6_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row6_loop
+		br row6_loopWH
 		
-	end_row6_loop:
+	end_row6_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -176,17 +176,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row7_loop:
-		bgt r20, r21, end_row7_loop
+	row7_loopWH:
+		bgt r20, r21, end_row7_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row7_loop
+		br row7_loopWH
 		
-	end_row7_loop:
+	end_row7_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -199,17 +199,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row8_loop:
-		bgt r20, r21, end_row8_loop
+	row8_loopWH:
+		bgt r20, r21, end_row8_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row8_loop
+		br row8_loopWH
 		
-	end_row8_loop:
+	end_row8_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -222,17 +222,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row9_loop:
-		bgt r20, r21, end_row9_loop
+	row9_loopWH:
+		bgt r20, r21, end_row9_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row9_loop
+		br row9_loopWH
 		
-	end_row9_loop:
+	end_row9_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -245,17 +245,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row10_loop:
-		bgt r20, r21, end_row10_loop
+	row10_loopWH:
+		bgt r20, r21, end_row10_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row10_loop
+		br row10_loopWH
 		
-	end_row10_loop:
+	end_row10_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -268,17 +268,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row11_loop:
-		bgt r20, r21, end_row11_loop
+	row11_loopWH:
+		bgt r20, r21, end_row11_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row11_loop
+		br row11_loopWH
 		
-	end_row11_loop:
+	end_row11_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -291,17 +291,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row12_loop:
-		bgt r20, r21, end_row12_loop
+	row12_loopWH:
+		bgt r20, r21, end_row12_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row12_loop
+		br row12_loopWH
 		
-	end_row12_loop:
+	end_row12_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -314,17 +314,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row13_loop:
-		bgt r20, r21, end_row13_loop
+	row13_loopWH:
+		bgt r20, r21, end_row13_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row13_loop
+		br row13_loopWH
 		
-	end_row13_loop:
+	end_row13_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -337,17 +337,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row14_loop:
-		bgt r20, r21, end_row14_loop
+	row14_loopWH:
+		bgt r20, r21, end_row14_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row14_loop
+		br row14_loopWH
 		
-	end_row14_loop:
+	end_row14_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -361,17 +361,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row15_loop:
-		bgt r20, r21, end_row15_loop
+	row15_loopWH:
+		bgt r20, r21, end_row15_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row15_loop
+		br row15_loopWH
 		
-	end_row15_loop:
+	end_row15_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -385,17 +385,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row16_loop:
-		bgt r20, r21, end_row16_loop
+	row16_loopWH:
+		bgt r20, r21, end_row16_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row16_loop
+		br row16_loopWH
 		
-	end_row16_loop:
+	end_row16_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -409,17 +409,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row17_loop:
-		bgt r20, r21, end_row17_loop
+	row17_loopWH:
+		bgt r20, r21, end_row17_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row17_loop
+		br row17_loopWH
 		
-	end_row17_loop:
+	end_row17_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -433,17 +433,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row18_loop:
-		bgt r20, r21, end_row18_loop
+	row18_loopWH:
+		bgt r20, r21, end_row18_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row18_loop
+		br row18_loopWH
 		
-	end_row18_loop:
+	end_row18_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -457,17 +457,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row19_loop:
-		bgt r20, r21, end_row19_loop
+	row19_loopWH:
+		bgt r20, r21, end_row19_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row19_loop
+		br row19_loopWH
 		
-	end_row19_loop:
+	end_row19_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
@@ -481,17 +481,17 @@ DrawWhite:
 	sthio r16, 0(r2)
 	addi r20, r20, 1
 	
-	row20_loop:
-		bgt r20, r21, end_row20_loop
+	row20_loopWH:
+		bgt r20, r21, end_row20_loopWH
 		
 		addi r4, r4, 1
 		call CalculatePixelAddr
 		sthio r16, 0(r2)
 		
 		addi r20, r20, 1	# incr counter
-		br row20_loop
+		br row20_loopWH
 		
-	end_row20_loop:
+	end_row20_loopWH:
 		ldw r4, 16(sp)
 		mov r20, r0
 		mov r21, r0
