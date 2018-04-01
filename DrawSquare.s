@@ -3,16 +3,18 @@
  * (x,y) location
  *		Input: r4 - x coordinate
  *			   r5 - y coordinate
+ * calls CalculatePixelAddr subroutine
  *******************************************************************/
 .equ BROWN, 0x92C0
 .equ GREEN, 0x24A0
-.equ SQUARE_DIMENSION, 18	# actual pixel dimension is SQUARE_DIMENSION+1
+.equ SQUARE_DIMENSION_X, 19	# actual pixel dimension is SQUARE_DIMENSION+1
+.equ SQUARE_DIMENSION_Y, 21
 	
 .global DrawSquare
 
 DrawSquare:
 # PROLOGUE
-	subi sp, sp, 36
+	subi sp, sp, 40
 	stw ra, 0(sp)
 	
 	stw r4, 4(sp)		# store on stack for restoring
@@ -24,6 +26,7 @@ DrawSquare:
 	stw r19, 24(sp)
 	stw r20, 28(sp)
 	stw r21, 32(sp)
+	stw r22, 36(sp)
 # END PROLOGUE
 	
 	movui r16, BROWN
@@ -31,16 +34,17 @@ DrawSquare:
 	
 	mov r18, r0		# counter x
 	mov r19, r0		# counter y
-	movi r20, SQUARE_DIMENSION
+	movi r20, SQUARE_DIMENSION_X
+	movi r22, SQUARE_DIMENSION_Y
 
 DrawSquare_yloop:
-	bgt r19, r20, end_DrawSquare_yloop
+	bgt r19, r22, end_DrawSquare_yloop
 	
 	DrawSquare_xloop:
 		bgt r18, r20, end_DrawSquare_xloop
 		
 		beq r19, r0, draw_brown		# if y is first row
-		beq r19, r20, draw_brown	# if y is last row
+		beq r19, r22, draw_brown	# if y is last row
 		
 		beq r18, r0, draw_brown		# if x is first pixel in row
 		beq r18, r20, draw_brown	# if x is last pixel in row
@@ -89,7 +93,8 @@ end_DrawSquare_yloop:
 	ldw r19, 24(sp)
 	ldw r20, 28(sp)
 	stw r21, 32(sp)
-	addi sp, sp, 36
+	ldw r22, 36(sp)
+	addi sp, sp, 40
 	
 	ret
 	

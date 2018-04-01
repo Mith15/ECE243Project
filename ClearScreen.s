@@ -1,6 +1,9 @@
 /*****************************************************************
  * ClearScreen: return screen to fully black using the pixel
  * buffer
+ *
+ * calls CalculatePixelAddr subroutine
+ *
  *****************************************************************/
  .equ BLACK, 0x0000
  .equ SCREEN_HEIGHT, 240
@@ -9,7 +12,7 @@
 
 ClearScreen:
 # PROLOGUE
-	subi, sp, sp, 20
+	subi sp, sp, 20
 	stw ra, 0(sp)
 	stw r16, 4(sp)
 	stw r20, 8(sp)
@@ -42,7 +45,7 @@ ClearScreen_yloop:
 		mov r4, r0			# reset x to 0
 		br ClearScreen_yloop
 	
-ClearScreen_yloop:
+end_ClearScreen_yloop:
 # EPILOGUE
 	ldw ra, 0(sp)
 	ldw r16, 4(sp)

@@ -13,7 +13,7 @@
 .global CalculateCharAddr
 
 CalculateCharAddr:
-	subi sp, sp, 12
+	subi sp, sp, 16
 	stw ra, 0(sp)
 	stw r16, 4(sp)
 	stw r17, 8(sp)
@@ -28,5 +28,5 @@ CalculateCharAddr:
 	ldw r16, 4(sp)
 	ldw r17, 8(sp)
 
-	addi sp, sp, 12
+	addi sp, sp, 16
 	ret

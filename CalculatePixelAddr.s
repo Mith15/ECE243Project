@@ -23,8 +23,8 @@ CalculatePixelAddr:
 	muli r17, r5, 1024	# 1024*y
 
 	add r2, r16, r17	# sum up offset
-	movia r18, ADDR_VGA	
-	add r2, r2, r18 # calculate pixel address       		
+	movia r18, ADDR_VGA
+	add r2, r2, r18
 	
 	ldw ra, 0(sp)
 	ldw r16, 4(sp)
