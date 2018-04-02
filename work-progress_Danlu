@@ -11,3 +11,8 @@ March 18, 2018
 	- draw one square of game board on VGA display
 	
 March 29, 2018
+	- draw game piece in either BLACK or WHITe
+	- reworked board_data.s to include coordinates
+
+April 1, 2018
+	- wrote subroutine to draw board based on board data.
